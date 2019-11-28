@@ -1,26 +1,16 @@
 <?php
-echo "Hoeveel landen ga je toevoegen?" . PHP_EOL;
-$number = readline(">");
 
-if (is_numeric($number)) {
-} else {
-    exit ($number . " " . "is geen getal");
-}
+$array = array("Japan"=>"Tokyo", "Mexico"=>"Mexico City", "USA"=>"Washington D.C.", "India"=>"New Delhi", "Zuid-Korea"=>"Seoul", "China"=>"Peking", "Nigeria"=>"Abuja", "Argentina"=>"Buenos Aires", "Egypt"=>"Cairo", "UK"=>"London");
 
+echo "Deze quiz is hoofdletter gevoelig" . PHP_EOL;
 
-$name = array();
-$dream = array();
-for ($i = 0; $i < $number; $i++) {
-    echo "Welk land wil je toevoegen?" . PHP_EOL;
-    $friend = readline(">");
-    array_push($name, $friend);
-    echo "Wat is de hoofdstad van ", $name[$i], "?" . PHP_EOL;
-    $droom = readline(">");
-    array_push($dream, $droom);
-}
-
-echo "De volgende landen en steden zitten in de database" . PHP_EOL;
-
-for ($i = 0; $i < $number; $i++) {
-    echo ($name[$i] . "," . $dream[$i]) . PHP_EOL;
+foreach($array as $x => $y) {
+    echo "Wat is de hoofdstad van " . $x . PHP_EOL;
+    $antwoord = readline();
+    if ($antwoord == $y) {
+        echo "Correct!" . PHP_EOL;
+    } else {
+        echo "Helaas, $antwoord is niet de hoofdstad van $x" . PHP_EOL;
+        echo "het correcte antwoord is: $y" . PHP_EOL;
+    }
 }
